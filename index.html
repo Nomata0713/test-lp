@@ -1,80 +1,156 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>全日本シャッター修理センター</title>
+  <title>全日本シャッター修理センター｜全国対応・即日修理</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1zcVnrlGdXcTKr+gixjBw+UzJma7YB0gobmH5eJxXMgIiiJONqhDG6D+wwXN6NpPmGmYIw1g7LBNc3+zL0XO2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f8f8f8; }
-    header { background: #1a1a1a; color: white; padding: 20px; text-align: center; }
-    header h1 { margin: 0; }
-    .phone { font-size: 18px; margin-top: 10px; }
-    section { padding: 30px 20px; background: white; margin: 10px auto; max-width: 800px; }
-    h2 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
-    ul { padding-left: 20px; }
-    footer { text-align: center; padding: 20px; font-size: 14px; color: #777; }
-    .cta { background: #e60000; color: white; padding: 15px; text-align: center; font-size: 20px; }
-    .cta a { color: white; text-decoration: none; }
+    :root {
+      --primary: #e60000;
+      --dark: #1a1a1a;
+      --light: #ffffff;
+      --gray: #f7f7f7;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Noto Sans JP', sans-serif; color: #333; background: var(--gray); }
+    a { color: inherit; text-decoration: none; }
+
+    /* Header */
+    header { background: var(--dark); color: var(--light); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+    header .logo { font-size: 1.4rem; font-weight: 700; }
+    header .phone { font-size: 1rem; }
+
+    /* Hero */
+    .hero { position: relative; background: url('https://images.unsplash.com/photo-1597743605754-0e4e3c20cb4b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; height: 60vh; display: flex; align-items: center; justify-content: center; color: var(--light); text-align: center; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn-primary { background: var(--primary); color: var(--light); padding: 12px 30px; border-radius: 6px; font-size: 1rem; display: inline-block; transition: background 0.3s; }
+    .btn-primary:hover { background: #c40000; }
+
+    /* Sections */
+    section { padding: 60px 20px; background: var(--light); }
+    section.gray { background: var(--gray); }
+    h2.section-title { text-align: center; font-size: 1.8rem; margin-bottom: 40px; position: relative; display: inline-block; }
+    h2.section-title::after { content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); }
+
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 30px; }
+    .feature-item { background: var(--light); border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .feature-item i { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+
+    /* Services */
+    .services { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 30px; }
+    .service-card { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); background: var(--light); }
+    .service-card img { width: 100%; height: 160px; object-fit: cover; }
+    .service-card .content { padding: 15px; text-align: center; }
+
+    /* Flow */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 30px; counter-reset: step; }
+    .step { background: var(--light); padding: 20px; border-radius: 8px; position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .step::before { counter-increment: step; content: counter(step); position: absolute; top: -15px; left: -15px; background: var(--primary); color: var(--light); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+
+    /* FAQ */
+    details { background: var(--light); border-radius: 8px; padding: 15px 20px; margin-bottom: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    summary { font-weight: 600; cursor: pointer; }
+
+    /* CTA */
+    .cta { background: var(--primary); color: var(--light); text-align: center; padding: 40px 20px; }
+    .cta h3 { font-size: 1.6rem; margin-bottom: 20px; }
+
+    /* Footer */
+    footer { background: var(--dark); color: var(--light); text-align: center; padding: 20px; font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <header>
-    <h1>全日本シャッター修理センター</h1>
-    <div class="phone">📞 080-2333-3604（年中無休・8:00〜20:00）</div>
+    <div class="logo">全日本シャッター修理センター</div>
+    <div class="phone"><i class="fa-solid fa-phone"></i> 080-2333-3604</div>
   </header>
 
-  <section>
-    <h2>全国対応！ シャッターのトラブル、すぐに解決！</h2>
-    <ul>
-      <li>手動シャッターが開かない！</li>
-      <li>電動シャッターが動かない！</li>
-      <li>ガタつきや異音がする！</li>
-      <li>サビや部品の破損！</li>
-    </ul>
-    <p><strong>即日出張・スピード対応！ その場で無料見積もり＆修理可能！</strong></p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>シャッターのトラブル<br>即日解決します！</h1>
+      <p>365日年中無休・現地見積無料・全国対応</p>
+      <a href="tel:08023333604" class="btn-primary"><i class="fa-solid fa-phone"></i> 今すぐ電話する</a>
+    </div>
   </section>
 
+  <!-- Features -->
   <section>
-    <h2>選ばれる理由</h2>
-    <ul>
-      <li>年間施工実績10,000件超</li>
-      <li>明朗な料金体系（追加請求なし）</li>
-      <li>経験豊富な技術者による確実な施工</li>
-      <li>全国エリア対応</li>
-    </ul>
+    <h2 class="section-title">選ばれる理由</h2>
+    <div class="features">
+      <div class="feature-item"><i class="fa-solid fa-clipboard-check"></i><br>年間施工実績 <strong>10,000件超</strong></div>
+      <div class="feature-item"><i class="fa-solid fa-yen-sign"></i><br>明朗会計＆追加請求なし</div>
+      <div class="feature-item"><i class="fa-solid fa-user-shield"></i><br>経験豊富な<br>プロの技術者</div>
+      <div class="feature-item"><i class="fa-solid fa-truck-fast"></i><br>全国どこでも<br>迅速出張</div>
+    </div>
   </section>
 
-  <section>
-    <h2>主な対応シャッター</h2>
-    <ul>
-      <li>手動シャッター</li>
-      <li>電動シャッター</li>
-      <li>ガレージシャッター</li>
-      <li>店舗用シャッター</li>
-      <li>工場・倉庫用シャッター</li>
-    </ul>
+  <!-- Services -->
+  <section class="gray">
+    <h2 class="section-title">対応シャッター</h2>
+    <div class="services">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=800&q=60" alt="手動シャッター">
+        <div class="content">手動シャッター</div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1556218363-ccea2314bc8f?auto=format&fit=crop&w=800&q=60" alt="電動シャッター">
+        <div class="content">電動シャッター</div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1614584912283-27fcf5c9726b?auto=format&fit=crop&w=800&q=60" alt="ガレージシャッター">
+        <div class="content">ガレージシャッター</div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1583471063331-c2f30cf66d49?auto=format&fit=crop&w=800&q=60" alt="店舗用シャッター">
+        <div class="content">店舗用シャッター</div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1602632009945-fc3dc1b6cd9a?auto=format&fit=crop&w=800&q=60" alt="工場倉庫シャッター">
+        <div class="content">工場・倉庫用シャッター</div>
+      </div>
+    </div>
   </section>
 
+  <!-- Flow -->
   <section>
-    <h2>修理までの流れ</h2>
-    <ol>
-      <li>お電話・WEBでお問い合わせ</li>
-      <li>現地にて無料お見積り</li>
-      <li>その場で修理 or 後日の施工手配</li>
-    </ol>
+    <h2 class="section-title">修理までの流れ</h2>
+    <div class="steps">
+      <div class="step"><strong>お問い合わせ</strong><br>電話またはフォームでご相談ください</div>
+      <div class="step"><strong>現地無料見積</strong><br>スタッフが伺い、その場でお見積り</div>
+      <div class="step"><strong>ご契約・施工</strong><br>ご納得後、その場で修理または日程調整</div>
+      <div class="step"><strong>アフターサポート</strong><br>施工後の不具合も迅速対応</div>
+    </div>
   </section>
 
-  <section>
-    <h2>よくあるご質問（FAQ）</h2>
-    <p><strong>Q. 見積りだけでも大丈夫ですか？</strong><br>はい、無料で対応いたします！</p>
-    <p><strong>Q. 古いシャッターでも対応可能ですか？</strong><br>はい、代替対応も含め柔軟に対応します。</p>
-    <p><strong>Q. 修理費用の目安は？</strong><br>基本料金＋部品代が目安となります。まずはご相談ください。</p>
+  <!-- FAQ -->
+  <section class="gray">
+    <h2 class="section-title">よくあるご質問</h2>
+    <details>
+      <summary>見積りだけでもお願いできますか？</summary>
+      <p>はい、無料で対応しております。お気軽にご相談ください。</p>
+    </details>
+    <details>
+      <summary>古いシャッターでも修理できますか？</summary>
+      <p>メーカー問わず対応可能です。部品が廃番の場合も代替案をご提案します。</p>
+    </details>
+    <details>
+      <summary>費用の目安はどれくらいですか？</summary>
+      <p>基本料金+部品代が目安です。詳細は現地見積にてご提示します。</p>
+    </details>
   </section>
 
-  <div class="cta">
-    📞 今すぐお電話を：<a href="tel:08023333604">080-2333-3604</a>
-  </div>
+  <!-- CTA -->
+  <section class="cta">
+    <h3>シャッターでお困りなら今すぐお電話ください！</h3>
+    <a href="tel:08023333604" class="btn-primary"><i class="fa-solid fa-phone"></i> 080-2333-3604</a>
+  </section>
 
   <footer>
     &copy; 全日本シャッター修理センター
